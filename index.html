@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Jandilson</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo-uepb.png" alt="Logo da Uepb">
+        <div id="texto">
+            <h1>Projeto Processador Jandilson</h1>
+            <h2>Equipe: <span id="nome">Arthur Nóbrega Leite, Gabriel Medeiros Nóbrega, Guilherme Oliveira e Miguel Seliahel Honorato de Souza</span></h3>
+        </div>
+    </header>
+
+    <h2>1. Formatação de Instução/ Modos de Endereçamento</h2>
+    <section id="formatacao-modo">
+        <table>
+            <thead>
+                <tr>
+                    <th>Bit</th>
+                    <th>15</th>
+                    <th>14</th>
+                    <th>13</th>
+                    <th>12</th>
+                    <th>11</th>
+                    <th>10</th>
+                    <th>9</th>
+                    <th>8</th>
+                    <th>7</th>
+                    <th>6</th>
+                    <th>5</th>
+                    <th>4</th>
+                    <th>3</th>
+                    <th>2</th>
+                    <th>1</th>
+                    <th>0</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td colspan="3">3 bits</td>
+                    <td colspan="5">5 bits</td>
+                    <td colspan="4">4 bits</td>
+                    <td colspan="4">4 bits</td>
+                </tr>
+                <tr>
+                    <td>3 endereços</td>
+                    <td class="nao-tipo-formatacao" colspan="3">opcode</td>
+                    <td class="nao-tipo-formatacao" colspan="5">Ra</td>
+                    <td class="nao-tipo-formatacao" colspan="4">RXb</td>
+                    <td class="nao-tipo-formatacao" colspan="4">RXc</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="3">3 bits</td>
+                    <td colspan="7">7 bits</td>
+                    <td colspan="6">6 bits</td>
+                </tr>
+                <tr>
+                    <td>2 endereços</td>
+                    <td class="nao-tipo-formatacao" colspan="3">opcode</td>
+                    <td class="nao-tipo-formatacao" colspan="7" >Ra</td>
+                    <td class="nao-tipo-formatacao" colspan="6">Rb</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="3">3 bits</td>
+                    <td colspan="13">13 bits</td>
+                </tr>
+                <tr>
+                    <td>1 endereço</td>
+                    <td class="nao-tipo-formatacao" colspan="3">opcode</td>
+                    <td class="nao-tipo-formatacao" colspan="13">R</td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="modo">
+            <p><strong>RXb</strong> e <strong>RXc</strong> usam de um modo de endereçamento <i>indireto via registrador</i>. Já <strong>Ra</strong> usa de um modo de endereçamento <i>via registrador</i></p>
+            <p><strong>Ra</strong> e <strong>Rb</strong> usam de um modo de endereçamento <i>via registrador</i></p>
+            <p><strong>R</strong> usa de um modo de endereçamento <i>via registrador</i></p>
+        </div>
+    </section>
+    <h2>2. Principais Operações</h2>
+    <table id="principais-operacoes">
+        <thead>
+            <tr>
+                <th>Mnemonic</th>
+                <th>Name and Format</th>
+                <th>Opcode (binary)</th>
+                <th>Assembly Format</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>add</td>
+                <td>Adição, 3 endereços</td>
+                <td>000</td>
+                <td>add rA, rxB, rxC</td>
+                <td>Add do conteúdo no <i>endereço</i> guardado no <strong>regB</strong> pelo conteúdo no <i>endereço</i> guardado no <strong>regC</strong>, armazenamento no <strong>regA</strong>
+                    </td>
+            </tr>
+            <tr>
+                <td>sub</td>
+                <td>Subtract, 3 endereços</td>
+                <td>001</td>
+                <td>sub rA, rxB, rxC</td>
+                <td>Subtração do conteúdo no <i>endereço</i> guardado no <strong>regB</strong> pelo conteúdo no <i>endereço</i> guardado no <strong>regC</strong>, armazenamento no <strong>regA</strong></td>
+            </tr>
+            <tr>
+                <td>mpy</td>
+                <td>Multiply, 3 endereços</td>
+                <td>010</td>
+                <td>mpy rA, rxB, rxC</td>
+                <strong>
+                    <td>Multiplicação do conteúdo no <i>endereço</i> guardado no <strong>regB</strong> pelo conteúdo no <i>endereço</i> guardado no <strong>regC</strong>, armazenamento no <strong>regA</strong></td>
+                </strong>
+            </tr>
+            <tr>
+                <td>div</td>
+                <td>Divide, 2 endereços</td>
+                <td>011</td>
+                <td>div rA, rB</td>
+                <td>Divisão do conteúdo de <strong>regA</strong> pelo conteúdo de <strong>regB</strong>, armazenado no <strong>regA</strong></td>
+            </tr>
+            <tr>
+                <td>and</td>
+                <td>And, 2 endereços</td>
+                <td>100</td>
+                <td>and rA, rB</td>
+                <td>Realização da operação lógica AND entre o conteúdo do <strong>regA</strong> e conteúdo do <strong>regB</strong>, armazenado no <strong>regA</strong>
+                    </td>
+            </tr>
+            <tr>
+                <td>or</td>
+                <td>Or, 2 endereços</td>
+                <td>101</td>
+                <td>or rA, rB</td>
+                <td>Realização da operação lógica OR entre o conteúdo do <strong>regA</strong> e conteúdo do <strong>regB</strong>, armazenado no <strong>regA</strong></td>
+            </tr>
+            <tr>
+                <td>shl</td>
+                <td>Logical shift left, 1 endereço</td>
+                <td>110</td>
+                <td>shl rA</td>
+                <td>Realiza um deslocamento lógico para à direita com <strong>regA</strong>, armazenado no <strong>acumulador(AC)</strong></td>
+            </tr>
+            <tr>
+                <td>shr</td>
+                <td>Logical shift right, 1 endereço</td>
+                <td>111</td>
+                <td>shr rA</td>
+                <td>Realiza um deslocamento lógico para à esquerda com <strong>regA</strong>, armazenado no <strong>acumulador(AC)</strong></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

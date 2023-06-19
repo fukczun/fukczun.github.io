@@ -1,0 +1,79 @@
+header {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 70px;
+}
+
+header h2 {
+    font-size: 19px;
+}
+
+#nome {
+    font-weight: lighter;
+}
+
+#formatacao-modo {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+}
+
+.nao-tipo-formatacao:hover {
+    background-color: #dedede;
+}
+
+.nao-tipo-formatacao {
+    border: solid 2px #000000;
+}
+
+caption {
+    font-size: 30px;
+    border-bottom: solid 2px #dedede;
+    padding-bottom: 40px;
+}
+
+#modo {
+    margin-top: 100px;
+    display: flex;
+    gap: 6em;
+    flex-direction: column;
+}
+
+p {
+    border: solid 2px #000000;
+    padding: 10px;
+    font-size: 15px;
+}
+
+p:hover {
+    background-color: #dedede;
+}
+
+#principais-operacoes {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70em;
+}
+
+#principais-operacoes tr {
+    border-bottom: solid 2px #000000;
+    border-top: solid 2px #000000;
+}
+
+#principais-operacoes tr td:hover {
+    background-color: #dedede;
+}
